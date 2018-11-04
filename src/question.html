@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>FOMO</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="./plugins/bootstrap/css/bootstrap.css">
     <style>
@@ -17,11 +17,14 @@
             width: 100%;
             padding: 0 20px 0 20px;
         }
-        .title-img{
-            width: 100%;
-            margin-top: -50px;
-            margin-left: -20px;
+        .title-box{
             overflow: hidden;
+        }
+        .title-img{
+            width: 150%;
+            position: relative;
+            top:-80px;
+            left:-100px;
         }
         .qstion-box{
             width: 100%;
@@ -30,7 +33,7 @@
             background-size: 100% 100%;
             text-align: left;
             padding: 20px;
-            margin-top: 50px;
+            margin-top: 0px;
         }
         .question-content{
             margin: 40px auto;
@@ -61,14 +64,15 @@
            text-align: center;
         }
         .qstin-left{
-            margin-top: 50px;
+            margin-top: 60px;
             margin-left: -80px;
         }
     </style>
 </head>
 <body>
-
-    <img src="./img/question-top.png" class="title-img">
+    <div class="title-box">
+      <img src="./img/question-top.png" class="title-img">
+    </div>
 
     <div class="container">
         <div class="qstion-box">
@@ -88,8 +92,9 @@
             <img src="./img/sometimes.png" class="sometimes-btn" onclick="answerFn(3)">
         </div>
 
-        <img src="./img/question-left.png" class="qstin-left">
     </div>
+
+    <img src="./img/question-left.png" class="qstin-left">
 
     <script src="./plugins/jQuery/jquery.min.js"> </script>
     <script src="./plugins/bootstrap/js/bootstrap.min.js"> </script>

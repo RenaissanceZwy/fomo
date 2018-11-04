@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>FOMO</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="./plugins/bootstrap/css/bootstrap.css">
     <style>
@@ -15,6 +15,7 @@
         }
         .container{
             width: 100%;
+            height: 440px;
             padding: 0 20px 0 20px;
         }
         .container P{
@@ -22,6 +23,15 @@
           font-size: 18px;
           color: #E7BA07;
           line-height: 25px;
+        }
+        .title-box{
+          overflow: hidden;
+        }
+        .title-img{
+          width: 150%;
+          position: relative;
+          top:-80px;
+          left:-100px;
         }
         .info-box{
           border: 2px black solid;
@@ -34,22 +44,38 @@
         .info-box a{
           color: #E7BA07;
         }
-        .title-img{
-            width: 100%;
-            margin-top: -50px;
-            margin-left: -20px;
-            overflow: hidden;
-        }
         .qstin-left{
-            margin-top: 50px;
+            margin-top: 0px;
             margin-left: -80px;
+        }
+        /*iphone x*/
+        @media screen and (max-device-height:812px){
+
+        }
+        /*iphone 8 plus */
+        @media screen and (max-device-height:736px){
+
+        }
+        /*iphone 8 */
+        @media screen and (max-device-height:667px){
+          .title-img{
+            width: 120%;
+            height: 200px;
+            position: relative;
+            top:-80px;
+            left:-100px;
+          }
+          .qstin-left{
+            margin-top: 0px;
+            margin-left: -80px;
+          }
         }
     </style>
 </head>
 <body>
-
-    <img src="./img/question-top.png" class="title-img">
-
+    <div class="title-box">
+      <img src="./img/question-top.png" class="title-img">
+    </div>
     <div class="container">
       <p>SOME HRLP</p>
       <div class="info-box">
@@ -70,10 +96,10 @@
           https://www.developgoodhabits.com/fear-of-missing-out/
         </a>
       </div>
-      <img src="./img/question-left.png" class="qstin-left">
+
     </div>
 
-
+    <img src="./img/question-left.png" class="qstin-left">
 
     <script src="./plugins/jQuery/jquery.min.js"> </script>
     <script src="./plugins/bootstrap/js/bootstrap.min.js"> </script>

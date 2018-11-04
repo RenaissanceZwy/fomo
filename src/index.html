@@ -32,10 +32,11 @@
     .start-btn-box{
       margin: 145px auto;
       text-align: center;
-      display: none;
+      height: 38px;
     }
     .start-btn{
       cursor: pointer;
+      display: none;
     }
     /*iphone x*/
     @media screen and (max-device-height:812px){
@@ -105,7 +106,7 @@
         setTimeout(loadImg,2000);
 
         if(imgIdx == imgArr.length -1){
-          $(".start-btn-box").show();
+          $(".start-btn").show();
         }
       }
     }

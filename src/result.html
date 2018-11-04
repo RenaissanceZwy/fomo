@@ -31,15 +31,17 @@
             margin-top: 70px;
         }
         .result-info{
-            height: 300px;
+            height: 205px;
             margin-top: 40px;
             font-family: LLPixel;
             font-size: 13px;
             color: #3A3A3A;
-            line-height: 38px;
+            line-height: 30px;
+        }
+        .result-info-img{
         }
         .result-left-png{
-            margin-top: 70px;
+            margin-top: 165px;
             margin-left: -55px;
         }
         /*iphone x*/
@@ -152,7 +154,12 @@
       }
 
       // touch the screen
-      $('body').on('touchend',function(){
+      /*$('body').on('touchend',function(){
+        touchNum++;
+        showInfo(resultIndex);
+      });*/
+
+      $('.result-info').click(function () {
         touchNum++;
         showInfo(resultIndex);
       });

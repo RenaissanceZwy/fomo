@@ -32,6 +32,7 @@
     .start-btn-box{
       margin: 145px auto;
       text-align: center;
+      display: none;
     }
     .start-btn{
       cursor: pointer;
@@ -75,7 +76,7 @@
 
   <div class="title-box">
     <img src="./img/mobile.png" >
-    <img src="./img/intro.png" class="title-logo">
+    <img src="./img/fomo.png" class="title-logo">
   </div>
 
   <div class="index-info-box">
@@ -102,6 +103,10 @@
         var imgPath = "./img/" + imgArr[imgIdx];
         $('.index-info').attr('src',imgPath);
         setTimeout(loadImg,2000);
+
+        if(imgIdx == imgArr.length -1){
+          $(".start-btn-box").show();
+        }
       }
     }
 

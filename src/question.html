@@ -73,10 +73,9 @@
     <div class="container">
         <div class="qstion-box">
             <div class="question-content">
-                1. Do you wake up first thing in the
-                morning and turn on your cell phone
-                to see if there are any unread message
-                before you get up ?
+              1. Do you wake up first thing in the morning and
+              turn on your cell phone to see if there are any
+              unread messages before you get up?
             </div>
         </div>
 
@@ -92,25 +91,55 @@
         <img src="./img/question-left.png" class="qstin-left">
     </div>
 
-
-
     <script src="./plugins/jQuery/jquery.min.js"> </script>
     <script src="./plugins/bootstrap/js/bootstrap.min.js"> </script>
     <script>
-        var questions = ['题目1','题目2','题目3','题目4','题目5','题目6'];
-        var answer = [];
-        var currentNum = 1;
+        var questions = [
+          '1. Do you wake up first thing in the morning and turn on your cell phone to see if there are any unread messages before you get up?',
+          '2.Do you catch up with social media at meal time, in the bathroom, while watching television?',
+          '3.When you go offline while traveling around the city ,do you feel stressed and rush to get connected?',
+          '4.Do you use your phone before sleeping, and leave the device close by so it can be checked as soon as you wake?',
+          '5.Do you feel others are having a more exciting time than you are?',
+          '6.Are you concerned when you friends seem to be having more fun without you?',
+          '7.Do you feel you can not follow the latest group jokes amongst your friendship group?',
+          '8.When you go on holiday, are you continuously checking what you friends are up to?',
+          '9.Do you open social media and browse the latest posts from start to finish?',
+          '10.Do you will open Weibo, check today\'s hot, comment on topics of interest, and simultaneously browse the Weibo feed stream to the last time you scanned?',
+          '11.Do you have the habit of checking information regularly when you log in to social software?',
+          '12.When friends get together without you - are you glad when they send a group photo to social media?',
+          '13.Do you feel anxious in a crowd?',
+          '14.Do you make eye contact with people when you talk with them?'
+        ];
+        var answer = [];//store the answer
+        var currentNum = 1;//current question num
         function answerFn(answerId) {
+
+            answer.push(answerId);
             if(currentNum < questions.length && currentNum > 0){
                 $('.question-content').text(questions[currentNum]);
-                answer.push(answerId);
 
-                if(currentNum == questions.length - 1){
-                    window.location.href = "./result.html";
+                if(currentNum == questions.length - 1){//the last question
+                    setTimeout(forwardToResult,1000);
                 }
 
                 currentNum++;
             }
+        }
+
+        //calculate the score
+        function forwardToResult() {
+          var score = 0;
+          for(var i = 0; i < answer.length ; i++){
+
+            if(answer[i] == 1){//choose A
+              score += 1;
+            }else if(answer[i] == 2){//choose B
+              score += 3;
+            }else if(answer[i] == 3){//choose C
+              score += 2;
+            }
+          }
+          window.location.href = "./result.html?score="+score;
         }
     </script>
 </body>

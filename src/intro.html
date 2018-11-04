@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
+  <title>FOMO</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="css/main.css">
@@ -26,6 +26,10 @@
     }
     .index-info{
       margin-top: 30px;
+      font-family: LLPixel;
+      font-size: 14px;
+      color: #3A3A3A;
+      line-height: 38px;
     }
     .start-btn-box{
       margin: 140px auto;
@@ -47,7 +51,12 @@
     <img src="./img/intro.png" class="title-logo">
   </div>
 
-  <img src="./img/index-know.png" class="index-info" >
+  <div class="index-info">
+    FOMO-Fear of missing out, a modern condition.
+    The problem from FOMO is that it can lead to an obsession with social media,
+    create high levels of anxiety. While many of us experience a level of this fear
+    it is possible to overcome and break the cycle.
+  </div>
 
   <div class="start-btn-box">
     <img src="./img/start.png" class="start-btn">
@@ -56,28 +65,8 @@
   <script src="./plugins/jQuery/jquery.min.js"> </script>
   <script src="./plugins/bootstrap/js/bootstrap.min.js"> </script>
   <script>
-    $(function () {
-      setTimeout(loadImg,2000);
-    });
-
-    var imgArr = ['index-know.png','index-have.png','index-level.png'];
-    var imgIdx = 0;
-    function loadImg() {
-      imgIdx++;
-      if(imgIdx < imgArr.length && imgIdx >= 0){
-        var imgPath = "./img/" + imgArr[imgIdx];
-        $('.index-info').attr('src',imgPath);
-        setTimeout(loadImg,2000);
-      }
-    }
-
-    // touch the screen
-    $('body').on('touchend',function(){
-      loadImg();
-    });
-
     $(".start-btn").click(function () {
-      window.location.href='./intro.html';
+      window.location.href='./question.html';
     });
   </script>
 </body>

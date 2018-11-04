@@ -31,6 +31,10 @@
         }
         .result-info{
             margin-top: 40px;
+            font-family: LLPixel;
+            font-size: 13px;
+            color: #3A3A3A;
+            line-height: 38px;
         }
         .result-left-png{
             margin-top: 50px;
@@ -45,8 +49,9 @@
     <div class="container">
         <img src="./img/mobile.png" >
         <img src="./img/text-result.png" class="result-log">
-
-        <img src="./img/14-20.png" class="result-info">
+        <div class="result-info">
+          <img src="./img/14-20.png" class="result-info-img">
+        </div>
     </div>
     <img src="./img/question-left.png" class="result-left-png">
 
@@ -54,5 +59,111 @@
 
     <script src="./plugins/jQuery/jquery.min.js"> </script>
     <script src="./plugins/bootstrap/js/bootstrap.min.js"> </script>
+    <script>
+      $(function () {
+        showResult();
+      });
+
+      var resultArr = ['14-20.png','21-27.png','28-36.png','37-42.png'];
+      var describeArr = [
+        'You have no symptoms of FOMO. The alternative of the information age, mobile phone for you and ten years ago is no different; the primary function is still to call and send text messages, at most plus the photography function, a variety of APP seems not attractive to you. You&#39;re more interested in going out with friends for parties, shopping, sports, or carrying your bags to see the world than wasting your time and life on your mobile phone!',
+        'It can not only rely on mobile phones, mobile phone orders, etc. but also will not rely too much on mobile phones. A mobile phone is a tool for you; you will try to maximise the use of mobile phones, but not because there is no mobile phone and panic. Keep that up.',
+        'You are enthusiastic about new things. You are very interested in the new social APP. Being obsessed with rankings in favourite games or social software, getting a sense of accomplishment, being afraid of missing news, becoming &quot;ignorant&quot; and spending more time on social software, often ignoring the people around you.',
+        'Your FOMO is very serious. Eating, sleeping, walking, you can&#39;t leave the social software for a moment, which has already begun to affect your normal working life. Social media does bring a lot of convenience to your life, but it doesn&#39;t take you through all the information, nor can you maintain the necessary social relationships on your behalf.',
+        'Share some exciting content directly to group chat or personal.You will get more real ideas in the real non-unilateral communication of these people, far more meaningful than the feedback of non-black and white &quot;likes&quot;.Develop more offline social.Feel the true touchable emotions with your heart. Others are not judging themselves all the time.'];
+      var suggestArr = [
+        '',
+        '',
+        'change from regulating your work and rest. Make regular schedules and put them into practice, and with the rest of the day fixed, you will naturally reduce your time addicted to mobile phones.Turn off the digital prompt settings.Try not to focus on intuitive, measurable feedback. Block social media accounts that you think are exceptionally fake and performance.Don&#39;t compare your real life with the carefully designed content of others.',
+        'Step by step reduce the time to play with your phone. Observe the time when you open the social software or game on your mobile phone in an hour, and then set a target that is shorter than this time. After you reach it, continue to shorten the time and gradually get rid of mobile phone dependence.Know the motivation behind each of your posts.When motivation is related to the need for superiority or value, this posts may have deviated from the original intention of recording your life and sharing ideas.',
+        '',];
+      var resultIndex = 0;
+      var touchNum = 0; //record the num of touching screen
+      //show result
+      function  showResult() {
+        var imgPath = './img/';
+        var params = manyValues();
+        if(typeof (params.score) != 'undefined'){
+          var score = params.score;
+
+          if(score >= 14 && score <= 20){
+            resultIndex = 0;
+          }else if(score >= 21 && score <= 27){
+            resultIndex = 1;
+          }else if(score >= 28 && score <= 36){
+            resultIndex = 2;
+          }else if(score >= 37 && score <= 42){
+            resultIndex = 3;
+          }
+          $(".result-info-img").attr("src",imgPath+resultArr[resultIndex]);
+        }
+      }
+
+      // touch the screen
+      $('body').on('touchend',function(){
+        touchNum++;
+        showInfo(resultIndex);
+      });
+
+      function showInfo(resultIndex) {
+        var sgstin = "<span style='color: #E7BA07;font-size: 16px;'>Suggestion:</span>";
+
+        if(resultIndex == 0){
+          $(".result-info-img").hide();
+          if(touchNum == 1){
+            $(".result-info").html(describeArr[resultIndex]);
+          }else if(touchNum == 2){
+            window.location.href = "./end.html";
+          }
+        }else if(resultIndex == 1){
+          $(".result-info-img").hide();
+          if(touchNum == 1){
+            $(".result-info").html(describeArr[resultIndex]);
+          }else if(touchNum == 2){
+            window.location.href = "./end.html";
+          }
+        }else if(resultIndex == 2){
+          $(".result-info-img").hide();
+          if(touchNum == 1){
+            $(".result-info").html(describeArr[resultIndex]);
+          }else if(touchNum == 2){
+            $(".result-info").html(sgstin+suggestArr[resultIndex]);
+          }else if(touchNum == 3){
+            window.location.href = "./end.html";
+          }
+        }else if(resultIndex == 3){
+          $(".result-info-img").hide();
+          if(touchNum == 1){
+            $(".result-info").html(describeArr[resultIndex]);
+          }else if(touchNum == 2){
+            $(".result-info").html(sgstin+suggestArr[resultIndex]);
+          } else if(touchNum == 3){
+            $(".result-info").html(describeArr[resultIndex+1]);
+          }else if(touchNum == 4){
+            window.location.href = "./end.html";
+          }
+
+        }
+
+      }
+
+      //get params
+      function manyValues(){
+        var url=window.location.search;
+        var params = {};
+        if(url.indexOf("?") != -1){
+          var str = url.substr(1);
+          strs = str.split("&");
+
+          for(i=0;i<strs.length;i++){
+            var key =strs[i].split("=")[0]
+            var value = strs[i].split("=")[1];
+            params[key] = value;
+          }
+        }
+        return params
+      }
+
+    </script>
 </body>
 </html>
